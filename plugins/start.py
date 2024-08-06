@@ -126,8 +126,11 @@ async def start_command(client: Client, message: Message):
                 ]
             ]
         )
-        await message.reply_text(
-            text=START_MSG.format(
+        picture_url = "https://telegra.ph/file/15c17f6139f7979b46bbd.jpg"
+        await client.send_photo(
+            chat_id=message.chat.id,
+            photo=picture_url,
+            caption=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
                 username=None if not message.from_user.username else '@' + message.from_user.username,
